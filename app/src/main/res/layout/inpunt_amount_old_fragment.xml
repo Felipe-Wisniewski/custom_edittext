@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.wisnitech.inputamountcomponent.ui.input_amount_old.InputAmountOldViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingVertical="50dp"
+        tools:context=".ui.input_amount_old.InputAmountOldFragment">
+
+        <TextView
+            android:id="@+id/tvValue"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:focusable="false"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:textAlignment="center"
+            android:textSize="100sp"
+            android:visibility="invisible"
+            app:autoSizeMaxTextSize="100sp"
+            app:autoSizeMinTextSize="7sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/etValue"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:background="@color/transparent"
+            android:cursorVisible="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:includeFontPadding="false"
+            android:inputType="numberDecimal"
+            android:maxLength="16"
+            android:maxLines="1"
+            android:nextFocusDown="@+id/et_concept"
+            android:onClick="@{() -> viewModel.etClick()}"
+            android:textAlignment="center"
+            android:textSize="100sp"
+            app:doubleBalance="@{viewModel.doubleBalance}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:transferValue="@{viewModel.transferValue}"
+            tools:text="560,00" />
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="25dp"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:maxEms="16"
+            android:textAlignment="center"
+            android:textSize="100sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etValue" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
